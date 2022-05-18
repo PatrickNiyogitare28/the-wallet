@@ -1,6 +1,29 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "target": "esnext",
+    "module": "commonjs",
+    "jsx": "react-native",
+    "sourceMap": true,
+    "outDir": "./.build",
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "types": [
+    "react",
+    "react-native"
+  ],
+  "exclude": [
+    "App.tsx",
+    "babel.config.js",
+    "jest.config.js",
+    ".eslintrc.js",
+    "./bin/**/**"
+  ],
+  "extends": "expo/tsconfig.base"
 }

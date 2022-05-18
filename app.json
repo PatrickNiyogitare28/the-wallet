@@ -4,12 +4,11 @@
     "slug": "the-wallet",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logos/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/images/splash-screen.png",
+      "backgroundColor": "#1B232A"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
