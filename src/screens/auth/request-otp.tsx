@@ -36,7 +36,7 @@ const RequestOtp: React.FC<IProps> = ({navigation}) => {
            </View>
            
            <View style={tw`mt-10`}>
-               <PrimaryButton label='Send OTP' onPress={() => {}}/>
+               <PrimaryButton label='Send OTP' onPress={() => navigation.navigate('verify-otp')}/>
            </View>
            </View>
 
