@@ -8,7 +8,11 @@ import FacebookIcon from '../../../assets/icons/fb-icon.png';
 import GoogleIcon from '../../../assets/icons/google-icon.png';
 import FingerTracker from '../../../assets/images/finger-tracker.png';
 
-const LoginForm: React.FC = () => {
+interface IProps{
+    onNavigate: Function
+}
+
+const LoginForm: React.FC<IProps> = ({onNavigate}) => {
     return (
         <View style={tw`mt-2`}>
             <Text style={tw`text-white text-2xl font-bold`}>Sign in</Text>
@@ -22,17 +26,17 @@ const LoginForm: React.FC = () => {
             </View>
 
             <View style={tw`mt-4`}>
-                <InputLabel name='Email' />
+                <InputLabel name='Password' />
                 <StandardInput
-                    placeholder='Enter your email'
-                    secureTextEntry={false}
+                    placeholder='Enter your password'
+                    secureTextEntry={true}
                 />
             </View>
 
             <Text style={tw`text-[${theme.dark.colors.primary}] mt-2`}>Forgot password?</Text>
 
             <View style={tw`items-center`}>
-                <PrimaryButton label='Sign in' />
+                <PrimaryButton label='Sign in' onPress={onNavigate}/>
             </View>
 
             <View style={tw`items-center my-4`}>
