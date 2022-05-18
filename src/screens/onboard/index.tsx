@@ -1,19 +1,27 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { View, Text, ImageBackground, Image, Pressable } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import tw from 'twrnc';
 import { theme } from '../../core/theme/colors';
 import OnboardImage from '../../../assets/images/onboard-bg.png';
 import OnboardImage1 from '../../../assets/images/onboard-vector-1.png';
 import OnboardImage2 from '../../../assets/images/onboard-vector-2.png';
 import OnboardImage3 from '../../../assets/images/onboard-vector-3.png';
-import { useState } from 'react';
-
+import AppStack from '../../navigation/index';
 interface IHighright {
     title: string,
     description: string,
-    image: JSX.Element,
+    image: JSX.Element
 }
-const Onboard: FC = () => {
+
+interface IOnboardProps {
+    navigation: any
+}
+
+type Props = NativeStackScreenProps<any>;
+
+const Onboard = ({navigation}: Props) => {
+
     const [activeHighright, setActiveHighright] = useState(0)
     const highrights: Array<IHighright> = [
         {
@@ -34,8 +42,11 @@ const Onboard: FC = () => {
     ];
 
     const handleOnNext = () => {
-        if(activeHighright < 2){
+        if (activeHighright < 2) {
             setActiveHighright(activeHighright + 1)
+        }
+        if(activeHighright === 2){
+            return navigation.navigate('login');
         }
     }
     return (
@@ -52,23 +63,23 @@ const Onboard: FC = () => {
                                     <Text style={tw`text-[${theme.dark.colors.textTheme}] text-center mt-4`}>{description}</Text>
                                 </View>
                             }
-                           
+
                         </View>
                     ))}
                     <View style={tw`items-center my-[10%]`}>
-                    <View style={tw`flex-row justify-around w-[15%]`}>
-                    {highrights.map((_, index: number) => (
-                        <View key={index.toString()} style={tw`p-[5px] rounded-full 
+                        <View style={tw`flex-row justify-around w-[15%]`}>
+                            {highrights.map((_, index: number) => (
+                                <View key={index.toString()} style={tw`p-[5px] rounded-full 
                         ${(index === activeHighright) ? 'bg-white' : 'bg-gray-600'}`}>
-                                
+
+                                </View>
+                            ))}
                         </View>
-                    ))}
-                    </View>
                     </View>
 
                     <View style={tw`items-center`}>
                         <Pressable style={tw`bg-[${theme.dark.colors.primary}] py-4 px-20 rounded-xl`}
-                          onPress={handleOnNext}
+                            onPress={handleOnNext}
                         >
                             <Text>Next</Text>
                         </Pressable>
