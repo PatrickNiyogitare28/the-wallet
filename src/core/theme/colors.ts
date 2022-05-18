@@ -2,6 +2,7 @@ export const theme = {
     dark: {
         colors: {
             primary: '#5ED5A8',
+            darkGreen: '#161C22',
             primaryRed: '#DD4B4B',
             switch: '#1B232A',
             softWhite: '#F4F6F9',

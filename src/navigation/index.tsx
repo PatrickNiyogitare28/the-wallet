@@ -2,6 +2,7 @@ import React from 'react';
 import { enableScreens } from 'react-native-screens';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../screens/onboard';
+import Login from '../screens/auth/login';
 
 enableScreens();
 type RootStackParamList = {
@@ -14,8 +15,9 @@ const Stack:any = createNativeStackNavigator<RootStackParamList>();
 const {Navigator, Screen} = Stack;
 function AppStack() {
   return (
-    <Navigator initialRouteName='home'>
-        <Screen name='home' component={Home} options={{headerShown: false}}/>
+    <Navigator initialRouteName='onboard'>
+        <Screen name='onboard' component={Home} options={{headerShown: false}}/>
+        <Screen name='login' component={Login} options={{headerShown: false}}/>
     </Navigator>
   );
 }
