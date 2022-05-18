@@ -21,16 +21,16 @@ const Signup: React.FC = () => {
             </View>
 
             <View style={tw`mt-4`}>
-                <InputLabel name='Email' />
+                <InputLabel name='Password' />
                 <StandardInput
-                    placeholder='Enter your email'
-                    secureTextEntry={false}
+                    placeholder='Enter your password'
+                    secureTextEntry={true}
                 />
             </View>
 
 
             <View style={tw`items-center`}>
-                <PrimaryButton label='Sign up' />
+                <PrimaryButton label='Sign up' onPress={() => {}} />
             </View>
 
             <View style={tw`items-center my-4`}>

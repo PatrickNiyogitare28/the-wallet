@@ -1,14 +1,21 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import tw from 'twrnc';
 import { theme } from '../../core/theme/colors';
-import CloseIcon from '../../../assets/icons/close-icon.png'
 
-const AuthAppBar = () => {
+interface IProps {
+    icon: JSX.Element,
+    label?: string,
+    onPress: Function
+}
+const AuthAppBar: React.FC<IProps> = ({icon, label, onPress}) => {
     return (
-        <View style={tw``}>
-            <Image source={CloseIcon} />
+        <TouchableOpacity onPress={() => onPress()}>
+        <View style={tw`flex-row items-center`}>
+           {icon}
+           <Text style={tw`text-[15px] ml-2 text-white font-bold`}>{label}</Text>
         </View>
+        </TouchableOpacity>
     )
 }
 export default AuthAppBar;
